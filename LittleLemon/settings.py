@@ -60,10 +60,19 @@ WSGI_APPLICATION = 'LittleLemon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+#  Mysql database configuration
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'little_lemon',
+        'USER': 'root',
+        'PASSWORD': 'toor',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -104,7 +113,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR/'Resturant/static/',
+    BASE_DIR /'Resturant/static/',
 ]
 
 # Default primary key field type
